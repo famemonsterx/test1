@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <div id="app">
+    <v-app dark="true">
+      <v-content>
+        <v-container>
+         
+
+          <v-dialog attach="reg" max-width="400px">
+              <v-btn primary dark slot="activator">Sigh-in</v-btn>
+
+             <form id="reg" link="reg">
+                  <app-login></app-login>
+                  <v-text-field
+                    label="Email"
+                    v-model="email"
+                    type="email"
+                    :error-messages="emailErrors"
+                    @input="$v.email.$touch()"
+                    @blur="$v.login.$touch()"
+                    required
+
+                  >
+                </v-text-field>
+                <v-text-field
+                  name="input-10-1"
+                  label="Enter your password"
+                  hint="At least 8 characters"
+                  v-model="password"
+                  min="8"
+                  :append-icon="e1 ? 'visibility' : 'visibility_off'"
+                  :append-icon-cb="() => (e1 = !e1)"
+                  :type="e1 ? 'password' : 'text'"
+                  
+                  required
+                ></v-text-field>
+                  <v-btn type="success" color="green" outline="true" @click="submit">submit</v-btn>
+                  <v-btn outline="true" color="" @click="clear">clear</v-btn>
+                </form>
+              </v-dialog>
+          <v-dialog attach="reg" max-width="400px">
+              <v-btn primary dark slot="activator">Login</v-btn>
+              <app-login></app-login>
+              <app-password></app-password>
+
+
+          </v-dialog>
+          <v-btn primary dark :to="{name: 'foo'}">foo</v-btn>
+              <v-btn primary dark :to="{name: 'bar'}">bar</v-btn>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
