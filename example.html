@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
@@ -54,11 +55,16 @@
 
 
           </v-dialog>
-          <v-btn primary dark :to="{name: 'foo'}">foo</v-btn>
-              <v-btn primary dark :to="{name: 'bar'}">bar</v-btn>
+
+          <v-btn primary dark :to="{path: '/foo'}">About</v-btn>
+              <v-btn primary dark :to="{path: '/bar'}">Page</v-btn>
+
+              <router-view></router-view>
         </v-container>
+
       </v-content>
     </v-app>
+          
   </div>
   <script src="main.js"></script>
 </body>
